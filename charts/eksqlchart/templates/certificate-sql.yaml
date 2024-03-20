@@ -1,0 +1,16 @@
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: tls-secret # Name of the Certificate resource
+#   # namespace: 
+#   # annotations:
+#   #   meta.helm.sh/release-name: helmsql-release
+#   #   meta.helm.sh/release-namespace: default
+# spec:
+#   secretName: new-tls # Name of the secret to store the SSL certificate
+#   issuerRef:
+#     name: letsencrypt-prod # Name of Issuer
+#     kind: ClusterIssuer # Kind of the Issuer (ClusterIssuer or Issuer)
+#     # server: https://acme-v02.api.letscrypt.org/directory
+#   dnsNames:
+#     - sample-app.cluster-test.salesconnection.com # List of DNS names to include in the certificate

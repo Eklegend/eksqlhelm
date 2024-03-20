@@ -1,0 +1,26 @@
+kubernetesClusterDomain: cluster.local
+replicaCount: 2
+image:
+  repository: ekhari/dockergitsql
+  tag: latest 
+  pullPolicy: IfNotPresent
+configMap:
+  dbName: "ek_database"
+  dbHost: "helmsql-mysql.default"  
+secrets:
+  dbUser: "cm9vdA=="
+  dbPass: "czg3QUxiRXM2Zg=="  
+sqlappService2:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+  type: ClusterIP
+persistentVolume:
+  enabled: True
+  size: 1Gi
+  mountPath: /ebs 
+  accessMode: ReadWriteOnce
+  path: /ebs
+  storageClassName: gp2
+# namespace : eksqlapp2

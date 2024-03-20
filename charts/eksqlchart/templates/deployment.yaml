@@ -1,0 +1,33 @@
+# templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "eksqlchart.fullname" . }}
+  # namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: my-sqlapp2
+  template:
+    metadata:
+      labels:
+        app: my-sqlapp2
+    spec:
+      containers:
+      - name: newsqlcontainer2
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: 3000
+        envFrom:
+          - configMapRef:
+              name: configmap-sql
+          - secretRef:
+              name: secrets-sql
+        volumeMounts:
+          - name: data-volume-pvc
+            mountPath: /ebs
+      volumes:
+        - name: data-volume-pvc
+          persistentVolumeClaim:
+            claimName: data-volume-pvc

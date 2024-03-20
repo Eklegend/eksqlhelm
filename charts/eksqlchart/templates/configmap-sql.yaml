@@ -1,0 +1,9 @@
+# templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-sql
+  # namespace: {{ .Release.Namespace }}
+data:
+  DB_HOST: "{{ .Values.configMap.dbHost }}"
+  DB_NAME: "{{ .Values.configMap.dbName }}"
