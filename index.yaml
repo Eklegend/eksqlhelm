@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  eksqlchart:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2024-03-20T08:19:53.170649978Z"
+    description: A Helm chart for Kubernetes
+    digest: 2cf93442c79e493a83cf2376710661c9acf07052340375e43b154937a35f7615
+    name: eksqlchart
+    type: application
+    urls:
+    - https://github.com/Eklegend/eksqlhelm/releases/download/eksqlchart-0.1.3/eksqlchart-0.1.3.tgz
+    version: 0.1.3
+generated: "2024-03-20T08:19:53.170661219Z"
